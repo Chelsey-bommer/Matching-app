@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultaten</title>
 
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/superstyle.css">
 </head>
 
 
-<body>
-
-    <%- include('../partials/header') %>
-   
-   <main method = "/resultaten" class="main2">
-
-     <h2>De perfecte match voor:</h2>
-
-     <!-- Hier komen de opgehaalde resultaten-->
-     <section>
-        <h3>Huizen in <%= stad %></h3>
-        <h3>Budget: €<%= budget %> </h3> 
-       
+<body id="results">
+    <figure>
         <img src="../../static/img/house1.jpg" alt="Picture of a house">
-        <p><%= housesName %></p>
-        <p><%= housesKosten %></p>
-        <p><%= housesStad %></p>
-                
-        <h4>Niet de perfecte match? Probeer het opnieuw:</h4>      
-        <a href="update">Pas voorkeuren aan</a>   
-     </section>
+    </figure>
 
-    </main>
+    <section method="/resultaten" class="main2">
+        <article>
+            <h2>De perfecte match voor:</h2>
+            <span>
+                <%- houses.naam %>
+            </span>
+            <span>
+                <%- houses.prijs %>
+            </span>
+            <span>
+                <%- houses.stad %>
+            </span>
+        </article>
 
-    <%- include('../partials/footer') %>
-   
+        <!-- Hier komen de opgehaalde resultaten-->
+        <article>
+            <h3>Huizen in <%= stad %>
+            </h3>
+            <h3>Budget: €<%= budget %>
+            </h3>
+
+
+            <!-- <img src="../../static/img/house1.jpg" alt="Picture of a house"> -->
+
+            <%- include('../partials/house-profile'); %>
+
+                <h4>Niet de perfecte match? Probeer het opnieuw:</h4>
+                <a href="update" class="link-button secondary">Pas voorkeuren aan</a>
+        </article>
+    </section>
 </body>
 </html>
